@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "Sobre mí";
 
 const identity = {
@@ -14,6 +16,10 @@ const skills = ["HTML", "Python", "Flask", "PostgreSQL", "Git", "GitHub", "Docke
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <!DOCTYPE html>
@@ -22,6 +28,17 @@ const goal = 3;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+        h1 {
+            color: purple;
+            font-size: 4rem;
+        }
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+        }
+    </style>
 </head>
 <body>
     <a href="/">Inicio</a>
@@ -45,7 +62,7 @@ const goal = 3;
     </ul>
     <p>Mis habilidades son:</p>
     <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
     {happy && <p>¡Estoy feliz de aprender Astro!</p>}
 
